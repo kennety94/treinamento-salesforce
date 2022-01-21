@@ -1,0 +1,25 @@
+<template>
+  <lightning-card  title="Filmes Favoritos">
+    <!-- <lightning-button label="New" slot="actions"></lightning-button> -->
+    
+    <!-- <lightning-datatable
+      key-field="id"
+      columns={columns}
+      data={moviesList}
+      hide-checkbox-column="true"
+    ></lightning-datatable> -->
+
+    <div class="wrapper" if:true={moviesList}>
+      <template for:each={moviesList} for:item="movie">
+        <lightning-card key={movie.Id} title={movie.Name}>
+          <div class="movie-card-body">
+            <p>Diretor: {movie.Diretor__c}</p>
+            <p>Ano: {movie.Ano__c}</p>
+            <p>Gênero: {movie.Genero__c}</p>
+          </div>
+        </lightning-card>
+      </template>
+    </div>
+
+  </lightning-card>
+</template>
